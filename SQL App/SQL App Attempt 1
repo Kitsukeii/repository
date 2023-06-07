@@ -1,0 +1,15 @@
+import pyodbc
+
+conn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=tcp:overmind;'
+                      'PORT=22;'
+                      'Database=testdb;'
+                      'Trusted_connection=yes;'
+                      'UID=kitsukei'
+                      'PWD=j9u8n9muef')
+
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM products')
+
+for i in cursor:
+    print(i)
